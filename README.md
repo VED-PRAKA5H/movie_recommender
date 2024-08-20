@@ -1,7 +1,7 @@
 # Movie Recommender System
 
 ## Project Overview
-The Movie Recommender System is an end-to-end machine learning project that provides personalized movie recommendations based on user preferences and historical data. This project utilizes collaborative filtering and content-based filtering techniques to suggest movies that users are likely to enjoy. By implementing this system, I aimed to enhance user experience and engagement in movie selection.
+The Movie Recommender System is a machine learning project that provides personalized movie recommendations based on user preferences and historical data. This project utilizes collaborative filtering and content-based filtering techniques to suggest movies that users are likely to enjoy. By implementing this system, I aimed to enhance user experience and engagement in movie selection.
 
 ## Key Features
 - **Data Collection**: Utilized the PMDB 500 Movie Dataset, which includes detailed information about movies, such as metadata and credits.
@@ -23,7 +23,7 @@ movie-recommender/\
 │ └── model_training.ipynb # Model training and evaluation\
 │\
 ├── src/ # Source code for the project\
-│ ├── init.py # Makes src a Python package\
+│ ├── __init__.py # Makes src a Python package\
 │ ├── data_preprocessing.py # Data preprocessing functions\
 │ ├── model.py # Model definition and training functions\
 │ └── utils.py # Utility functions\
@@ -47,12 +47,12 @@ To set up the project, follow these steps:
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/VED-PRAKA5H/movie_recommender.git
-   cd movie-recommender
+   cd movie_recommender
 
 # Install the required packages:
 pip install -r requirements.txt
 
 # Usage
-    ```bash
+  ```bash
     python main.py
 
