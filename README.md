@@ -11,28 +11,28 @@ The Movie Recommender System is an end-to-end machine learning project that prov
 - **Deployment**: Deployed the application on a cloud platform to make it accessible to users.
 
 ## Project Structure
-movie-recommender/
-│
-├── data/
-│ ├── raw/ # Original, immutable data dump
-│ ├── processed/ # Cleaned and processed data
-│ └── README.md # Description of the data used
-│
-├── notebooks/ # Jupyter notebooks for exploration
-│ ├── EDA.ipynb # Exploratory Data Analysis
-│ └── model_training.ipynb # Model training and evaluation
-│
-├── src/ # Source code for the project
-│ ├── init.py # Makes src a Python package
-│ ├── data_preprocessing.py # Data preprocessing functions
-│ ├── model.py # Model definition and training functions
-│ └── utils.py # Utility functions
-│
-├── tests/ # Unit tests for the project
-│ └── test_model.py # Tests for the model
-│
-├── requirements.txt # List of dependencies
-├── README.md # Project overview and instructions
+movie-recommender/\
+│\
+├── data/\
+│ ├── raw/ # Original, immutable data dump\
+│ ├── processed/ # Cleaned and processed data\
+│ └── README.md # Description of the data used\
+│\
+├── notebooks/ # Jupyter notebooks for exploration\
+│ ├── EDA.ipynb # Exploratory Data Analysis\
+│ └── model_training.ipynb # Model training and evaluation\
+│\
+├── src/ # Source code for the project\
+│ ├── init.py # Makes src a Python package\
+│ ├── data_preprocessing.py # Data preprocessing functions\
+│ ├── model.py # Model definition and training functions\
+│ └── utils.py # Utility functions\
+│\
+├── tests/ # Unit tests for the project\
+│ └── test_model.py # Tests for the model\
+│\
+├── requirements.txt # List of dependencies\
+├── README.md # Project overview and instructions\
 └── main.py # Main script to run the application
 
 ## Technologies Used
