@@ -23,7 +23,7 @@ movie-recommender/\
 │ └── model_training.ipynb # Model training and evaluation\
 │\
 ├── src/ # Source code for the project\
-│ ├── __init__.py # Makes src a Python package\
+│ ├── `__init__.py` # Makes src a Python package\
 │ ├── data_preprocessing.py # Data preprocessing functions\
 │ ├── model.py # Model definition and training functions\
 │ └── utils.py # Utility functions\
@@ -49,8 +49,9 @@ To set up the project, follow these steps:
    git clone https://github.com/VED-PRAKA5H/movie_recommender.git
    cd movie_recommender
 
-# Install the required packages:
-pip install -r requirements.txt
+2. **Install the required packages**:
+   ```bash
+   pip install -r requirements.txt
 
 # Usage
   ```bash
