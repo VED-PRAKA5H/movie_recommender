@@ -1,6 +1,6 @@
 import pandas as pd
-sim_df = pd.read_csv('../../data/similarity.csv')
-pro_df = pd.rad_csv('../../data/processed.csv')
+sim_df = pd.read_csv('../../similarity.csv')
+pro_df = pd.read_csv('../data/processed.csv')
 # Assuming new_df and similarity are defined elsewhere in your code
 # new_df: DataFrame containing movie data with titles and other attributes
 # similarity: A matrix containing similarity scores between movies
@@ -19,10 +19,10 @@ def recommend(movie):
     """
     
     # Get the index of the input movie from the DataFrame
-    movie_index = new_df[new_df.title == movie].index[0]  # Getting index of the movie
+    movie_index = pro_df[pro_df.title == movie].index[0]  # Getting index of the movie in processed data
 
     # Retrieve the similarity scores for the input movie
-    distances = similarity[movie_index]  # Get similarity scores for the movie
+    distances = sim_df.loc[movie_index,:]  # Get similarity scores for the movie
 
     # Sort the movies based on similarity scores in descending order
     sorted_list = sorted(enumerate(distances), key=lambda item: item[1], reverse=True)
@@ -30,5 +30,5 @@ def recommend(movie):
     # Print the titles of the top 10 recommended movies
     print("Recommended movies for '{}':".format(movie))
     for movie in sorted_list[1:11]:  # Skip the first one as it's the input movie itself
-        print(new_df['title'][movie[0]])  # Print the title of the recommended movie
+        print(pro_df['title'][movie[0]])  # Print the title of the recommended movie
 
