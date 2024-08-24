@@ -1,6 +1,12 @@
+import sys
+import os
+
+# Add the src folder to the system path
+sys.path.append(os.path.abspath(os.path.join('..', 'src')))
+
 import pandas as pd
-sim_df = pd.read_csv('../../similarity.csv')
-pro_df = pd.read_csv('../data/processed.csv')
+sim_df = pd.read_csv(r"D:\project\similarity.csv")
+pro_df = pd.read_csv(r"D:\project\movie_recommender\data\processed.csv")
 # Assuming new_df and similarity are defined elsewhere in your code
 # new_df: DataFrame containing movie data with titles and other attributes
 # similarity: A matrix containing similarity scores between movies
@@ -27,8 +33,7 @@ def recommend(movie):
     # Sort the movies based on similarity scores in descending order
     sorted_list = sorted(enumerate(distances), key=lambda item: item[1], reverse=True)
 
-    # Print the titles of the top 10 recommended movies
-    print("Recommended movies for '{}':".format(movie))
+    top_ten_similar = []
     for movie in sorted_list[1:11]:  # Skip the first one as it's the input movie itself
-        print(pro_df['title'][movie[0]])  # Print the title of the recommended movie
-
+        top_ten_similar.append(pro_df['title'][movie[0]])  # append the title of the recommended movie
+    return top_ten_similar
