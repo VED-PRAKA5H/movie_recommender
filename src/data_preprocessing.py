@@ -1,4 +1,8 @@
 import ast  # Importing the ast module to safely evaluate strings containing Python literals
+from nltk.stem import PorterStemmer
+from nltk.tokenize import word_tokenize
+import nltk
+nltk.download('punkt_tab')  # it is not downloaded by default .
 
 def convert(obj):
     """
@@ -90,6 +94,20 @@ def fetch_director(obj):
     # Return the final list of names
     return director_list
 
-# def
+
+def stem_text(text):
+    """Stem the input text using the Porter Stemmer.
+    word_tokenize: This is a specific function from the tokenize module. 
+    It takes a string of text as input and splits it into individual words (tokens). 
+    For example, the sentence "Hello, world!" would be tokenized into the tokens ["Hello", ",", "world", "!"]. 
+    This function handles punctuation and whitespace, making it useful for preparing text for further analysis
+    """
+
+    stemmer = PorterStemmer()
+    tokens = word_tokenize(text)  # Tokenize the text by splitting on whitespace
+    stemmed_tokens = [stemmer.stem(token) for token in tokens]
+    stemmed_text = ' '.join(stemmed_tokens)  # Join the stemmed tokens back into a single string
+    print(stemmed_text)
+    return stemmed_text
 
 
