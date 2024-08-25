@@ -38,15 +38,18 @@ def recommend(movie):
     for movie in sorted_list[1:11]:  # Skip the first one as it's the input movie itself
     
         movie_id = pro_df['id'][movie[0]]
-
         url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key=7b135b6bce93fa89d622513b5a9b8514"
         response = requests.get(url)
         data = response.json()
+        
+        try:
+            poster = "https://image.tmdb.org/t/p/w500/" + data['poster_path']
 
-        poster = "https://image.tmdb.org/t/p/w500/" + data['poster_path']
+        except TypeError:
+            poster = "https://as2.ftcdn.net/v2/jpg/07/95/29/45/1000_F_795294547_gaBzWLhkAYBSz1ZUIZssHhvzGzstNmHK.jpg"
         movies_poster.append(poster)
             
-        top_ten_similar.append(pro_df['title'][movie[0]])
+        top_ten_similar.append(pro_df['title'][movie[0]])  # append the title of the recommended movie
         
     return top_ten_similar, movies_poster
 
