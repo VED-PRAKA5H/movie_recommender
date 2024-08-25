@@ -5,19 +5,15 @@ import pandas as pd
 
 from src.recommendation import recommend
 import streamlit as st
-import requests
-def fetch_poster(movie_id):
-    response = requests.get('
 
+                    
 
-                            
+# Custom CSS for glassmorphism with specified colors
 st.markdown("""
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: url('https://wallpaperset.com/w/full/2/2/a/521081.jpg') no-repeat center center fixed;
-            background-size: cover;
-            opacity: 0.7;
+            background-color: #f5f5f5;
         }
         h1 {
             color: #FFAAAA;
@@ -57,6 +53,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+
 # Title
 st.title('Movie Recommender System')
 
@@ -75,6 +72,12 @@ st.write('You selected:', option)
 # Recommendation button
 if st.button('Recommend'):
     st.write(f"Here's your top ten similar movies to {option}:")
-    recommended_movies = recommend(option)
-    for movie in recommended_movies:
-        st.write(movie)
+    recommended_movies, poster_path = recommend(option)
+    for i in range(len(recommended_movies)):
+        st.write(f"{i+1} : {recommended_movies[i]}")
+        st.image(poster_path[i], caption=recommended_movies[i])
+
+
+
+
+
