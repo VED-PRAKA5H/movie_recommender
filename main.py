@@ -4,26 +4,58 @@ import nltk
 import pandas as pd
 
 from src.recommendation import recommend
-
 import streamlit as st
+import requests
+def fetch_poster(movie_id):
+    response = requests.get('
 
-import streamlit as st
-import pandas as pd
 
-# Custom CSS for glassmorphism with orange color
+                            
 st.markdown("""
     <style>
-    .glass {
-        background: rgba(255, 165, 0, 0.1); /* Orange color with transparency */
-        border-radius: 15px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 165, 0, 0.3); /* Orange border */
-        padding: 20px;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://wallpaperset.com/w/full/2/2/a/521081.jpg') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.7;
+        }
+        h1 {
+            color: #FFAAAA;
+        }
+        .stSelectbox {
+            background: rgba(58, 190, 249, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 10px;
+            border: 1px solid #3572EF;
+            border-radius: 5px;
+        }
+        .stSelectbox:hover {
+            background: rgba(58, 190, 249, 0.3);
+        }
+        .stButton {
+            background-color: #3ABEF9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .stButton:hover {
+            background-color: #3572EF;
+        }
+        .stDataFrame {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .stDataFrame th, .stDataFrame td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .stDataFrame th {
+            background-color: #A7E6FF;
+        }
     </style>
-    """, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
 # Title
 st.title('Movie Recommender System')
@@ -43,11 +75,6 @@ st.write('You selected:', option)
 # Recommendation button
 if st.button('Recommend'):
     st.write(f"Here's your top ten similar movies to {option}:")
-    st.write(pd.DataFrame({
-        'movie list': recommend(option)
-    }))
-
-# Apply glassmorphism effect
-# st.markdown('<div class="glass">', unsafe_allow_html=True)
-# st.markdown('</div>', unsafe_allow_html=True)
-
+    recommended_movies = recommend(option)
+    for movie in recommended_movies:
+        st.write(movie)
