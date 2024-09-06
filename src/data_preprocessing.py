@@ -107,7 +107,6 @@ def stem_text(text):
     tokens = word_tokenize(text)  # Tokenize the text by splitting on whitespace
     stemmed_tokens = [stemmer.stem(token) for token in tokens]
     stemmed_text = ' '.join(stemmed_tokens)  # Join the stemmed tokens back into a single string
-    print(stemmed_text)
     return stemmed_text
 
 

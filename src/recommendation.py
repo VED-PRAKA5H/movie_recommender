@@ -1,10 +1,8 @@
 import sys
 import os
-
-# Add the src folder to the system path
-sys.path.append(os.path.abspath(os.path.join('..', 'src')))
 import requests  ## for api
 import pandas as pd
+
 sim_df = pd.read_csv(r"D:\project\similarity.csv")
 pro_df = pd.read_csv(r"D:\project\movie_recommender\data\processed.csv")
 # Assuming new_df and similarity are defined elsewhere in your code
